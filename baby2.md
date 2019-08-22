@@ -113,7 +113,7 @@ text {
 <body>
 <center><img src="logo.png" alt="Logo" /></center>
 
-<center><button class="join" onclick="window.location.href='https://www.mb103.com/lnk.asp?o=13481&c=918277&a=377858&k=70404A51448EC93923540476D646C7AD&l=14091&s1=AS5'"> Join </button>
+<center><button class="join" onclick="window.location.href='https://www.mb103.com/lnk.asp?o=13481&c=918277&a=377858&k=70404A51448EC93923540476D646C7AD&l=14091&s1=AS12'"> Join </button>
 
 <br/>
 
