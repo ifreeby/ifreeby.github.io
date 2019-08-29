@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC');
+
+body {
+  font-family: 'Bowlby One SC', cursive;
+  background-image: url("imgs/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  background-size: cover;
+}
+
+.button {
+  background-color: #f94d3d;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.button:hover {
+  background-color: #ff8340;
+  color: black;
+}
+
+p{
+  margin-top: 10rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 0 1px 0px #378ab4, 1px 0 0px #5dabcd, 1px 2px 1px #378ab4, 2px 1px 1px #5dabcd, 2px 3px 2px #378ab4, 3px 2px 2px #5dabcd, 3px 4px 2px #378ab4, 4px 3px 3px #5dabcd, 4px 5px 3px #378ab4, 5px 4px 2px #5dabcd, 5px 6px 2px #378ab4, 6px 5px 2px #5dabcd, 6px 7px 1px #378ab4, 7px 6px 1px #5dabcd, 7px 8px 0px #378ab4, 8px 7px 0px #5dabcd;
+	font-size: 4rem;
+  color: #ff8e6b;
+}
+
+@media screen and (min-width: 1400px) {
+  p {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  p {
+    font-size: 3rem;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  p {
+    font-size: 2.5rem;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}

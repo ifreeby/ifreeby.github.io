@@ -1,0 +1,102 @@
+body {
+ overflow: hidden;
+ background-image: url("baby.jpg");
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-color: #919191;
+ text-align: center;
+ font-family: 'Varela Round', sans-serif;
+}
+
+p {
+  color: #1e1e1e;
+  text-align: center;
+  font-size: 25px;
+  background-color: rgba(255, 255, 255, 0.8);
+  min-width: 11em;
+  padding: 10%;
+  margin: auto;
+  width: 50%;
+  margin-top: 10%;
+  border-radius: 20px;
+}
+
+.bubbly-button {
+  font-family: 'Varela Round', sans-serif;
+  display: inline-block;
+  font-size: 1em;
+  padding: 1em 2em;
+  min-width: 170px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #1ee85a;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 2px 25px rgba(48, 255, 148, 0.5);
+}
+.bubbly-button:focus {
+  outline: 0;
+}
+.bubbly-button:before, .bubbly-button:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: -1000;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+
+.bubbly-button:active {
+  transform: scale(0.9);
+  background-color: #30ff94;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+}
+
+.bubbly-button-red {
+  font-family: 'Varela Round', sans-serif;
+  display: inline-block;
+  font-size: 1em;
+  min-width: 170px;
+  padding: 1em 2em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #e81e1e;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 2px 25px rgba(255, 66, 66, 0.5);
+}
+.bubbly-button-red:focus {
+  outline: 0;
+}
+.bubbly-button-red:before, .bubbly-button:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: -1000;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+
+.bubbly-button-red:active {
+  transform: scale(0.9);
+  background-color: #30ff94;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+}

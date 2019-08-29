@@ -1,0 +1,79 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-weight: 900;
+  padding-left: 2rem;
+  font-size: 3.5rem;
+  padding-top: 0.8rem;
+  text-align: left;
+  color: black;
+}
+
+@media only screen and (max-width: 350px) {
+  h1 {
+    font-size: 2.5rem;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+  }
+}
+
+a {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 350px) {
+  a {
+    font-size: 0.8rem;
+  }
+}
+
+b {
+  word-wrap: break-word;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 350px) {
+  b {
+    font-size: 0.8rem;
+  }
+}
+
+span {
+  padding-right: 25%;
+}
+
+.image, span {
+        display: table-cell;
+        vertical-align: middle;
+}
+
+.image {
+    width: 50px
+}
+
+.icon {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 350px) {
+  .icon {
+    padding-left: 1.5rem;
+  }
+}
+
+.button {
+  font-weight: 300;
+  background-color: #ff4551;
+  border-radius: 10px;
+  color: white;
+  padding: 12px 100px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin-bottom: 100px;
+}
