@@ -1,0 +1,67 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-image: url("bgz.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #ffffff;
+  background-size: cover;
+}
+
+.button {
+  background-color: #f94d3d;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.button:hover {
+  background-color: #ff8340;
+  color: black;
+}
+
+h1 {
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 9rem;
+  margin-left: 25%;
+  margin-right: 25%;
+  font-weight: 300;
+  text-shadow: 1px 1px #737373;
+  margin-bottom: 3rem;
+}
+
+h1>span {
+  background-color: rgba(140, 171, 173, 0.7);
+}
+
+@media screen and (min-width: 1400px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  h1 {
+    font-size: 2rem;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
