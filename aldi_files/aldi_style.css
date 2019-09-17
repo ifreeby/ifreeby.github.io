@@ -1,0 +1,233 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-image: url("aldi_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #ffffff;
+  background-size: cover;
+  margin: 0;
+}
+
+nav {
+  height: 50px;
+  background-color: #032276;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+nav h3 {
+  font-weight: lighter;
+  color: white;
+  text-align: center;
+  font-size: 1em;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.get_location {
+  visibility: hidden;
+}
+
+.reviews {
+  width: 350px;
+  float: right;
+  padding-right: 20%;
+  margin-top: -2%;
+  padding-bottom: 5%;
+}
+
+@media (max-width: 600px) {
+  .reviews {
+    margin-top: 10%;
+    padding-bottom: 10%;
+  }
+}
+
+@media (max-width: 376px) {
+  .reviews {
+    width: 300px;
+    height: 200px;
+    margin-right: -10%;
+    margin-top: 10%;
+    padding-bottom: 10%;
+  }
+}
+
+@media (max-width: 415px) {
+  .reviews {
+        margin-top: 10%;
+        width: 300px;
+      }
+    }
+
+@media (max-width: 321px) {
+  .reviews {
+        margin-right: -50px;
+      }
+    }
+
+.wrapper {
+  width: 90%;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 376px) {
+  .wrapper {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 321px) {
+  .wrapper {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.box {
+  width: 40vw;
+  height: 30vw;
+  background-color: #ededed;
+  float: right;
+  border: 5px solid #032276;
+  margin-top: 1%;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .box {
+        width: 300px;
+        height: 200px;
+      }
+    }
+
+@media (max-width: 415px) {
+  .box {
+        width: 220px;
+        height: 200px;
+      }
+    }
+
+@media (max-width: 376px) {
+  .box {
+        width: 220px;
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 321px) {
+      .box {
+            margin-right: 50px;
+          }
+        }
+
+.box h1 {
+  margin-top: 20%;
+  font-size: 2.5vw;
+}
+
+@media (max-width: 600px) {
+  .box h1 {
+    font-size: 20px;
+    margin-top: 15%;
+  }
+    }
+
+@media (max-width: 415px) {
+  .box h1 {
+    font-size: 20px;
+    margin-top: 15%;
+  }
+    }
+
+@media (max-width: 376px) {
+  .box h1 {
+    font-size: 20px;
+    margin-top: 15%;
+  }
+}
+
+.card {
+  width: 40vw;
+  height: 35vw;
+  margin-left: 5%;
+  float: left;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .card {
+    text-align: center;
+    margin-left: 30%;
+    margin-bottom: 5%;
+    width: 250px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 415px) {
+  .card {
+    width: 210px;
+    height: 190px;
+    margin-left: 25%;
+  }
+}
+
+@media (max-width: 376px) {
+  .card {
+    width: 210px;
+    height: 190px;
+    margin-left: 28%;
+  }
+}
+
+@media (max-width: 321px) {
+  .card {
+        margin-left: 50px;
+      }
+    }
+
+.button {
+  background-color: #27d93c;
+  border: none;
+  color: white;
+  padding: 15px 90px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  font-weight: 400;
+  text-shadow: 1px 1px #000000;
+  margin: 0;
+  border: 5px solid #ffff;
+}
+
+@media (max-width: 700px) {
+  .button {
+    padding: 15px 40px;
+  }
+}
+
+
+@media (max-width: 376px) {
+  .button {
+    padding: 15px 20px;
+  }
+}
+
+.button:hover {
+  background-color: #1cffb7;
+  text-shadow: 1px 1px #ffffff;
+  color: black;
+}
