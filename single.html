@@ -1,0 +1,77 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<title> Attention! </title>
+<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+<body>
+<style>
+  body {
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  h1 {
+    font-size: 4vh;
+    margin-top: 80px;
+    margin-bottom: -10px;
+  }
+  .btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.btn-hover:focus {
+    outline: none;
+}
+.btn-hover.color-9 {
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+b {
+    font-weight: lighter;
+  }
+.popup {
+  font-size: 2vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 30px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.7);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.7);
+}
+</style>
+<h1>Members sending inappropriate messages will be instantly removed!<h1>
+<button class="btn-hover color-9" onclick="window.location.href='https://www.mb104.com/lnk.asp?o=18221&c=918277&a=377858&k=AC22CC2B176AF7DEB325C0CF5F2850D3&l=19470&s1=C1';">Continue</button>
+      <div class="popup animated slideInLeft delay-2s"><a>Last Sign Up From:</a> <b id="output"></b>📍</div>
+    <script>
+    var cities = ['London', 'Leeds', 'Manchester', 'Liverpool', 'Bristol', 'Exeter', 'Brighton', 'Canterbury', 'Peterborough', 'Norwich', 'Hull', 'Chester'];
+    var city = cities[Math.floor(Math.random()*cities.length)];
+    document.getElementById("output").innerHTML = city.toString();
+    </script>
+</body>
+</html>
