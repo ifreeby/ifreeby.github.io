@@ -3,14 +3,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <head>
     <link rel="shortcut icon" type="image/png" href="faviconzo.png"/>
-    <title> McDonalds NZ </title>
+    <title> McDonalds Promo </title>
     <link rel="stylesheet" type="text/css" href="bigmac.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
   </head>
   <body>
-    <h1 class="animated fadeInDown"><span>Chance To Win<br><b>$100</b><br>McDonalds Voucher<span></h1>
-    <div style="text-align:center;" class="animated infinite pulse"><a href="https://www.mb103.com/lnk.asp?o=16682&c=918277&a=377858&k=FECE785F4132560F7530F6C486A7F9AD&l=18159" class="button">Enter»</a></div>
+    <h1 class="animated fadeInDown"><span>Chance To Win<br><b>$100</b><br>McDonalds Gift Card<span></h1>
+    <div style="text-align:center;" class="animated infinite pulse"><a href="https://www.mb104.com/lnk.asp?o=16504&c=918277&a=377858&k=0C87F6BF2E6B2F05F4756D91DEBDB8F7&l=17681" class="button">Enter»</a></div>
+    <div class="popup animated slideInLeft delay-2s"><a>Last User From:</a> <span id="city"></span>📍</div>
+    <div class="get_location">
+    <div>Country: <span id="country"></span></div>
+    <div>State: <span id="state"></span></div>
+    <div>City: <span id="city"></span></div>
+    <div>Postal: <span id="postal"></span></div>
+    <div>Latitude: <span id="latitude"></span></div>
+    <div>Longitude: <span id="longitude"></span></div>
+    <div>IP address: <span id="ipv4"></span></div>
+    </div>
 </body>
+<script>
+
+    var country = document.getElementById('country');
+    var state = document.getElementById('state');
+    var city = document.getElementById('city');
+    var postal = document.getElementById('postal');
+    var latitude = document.getElementById('latitude');
+    var longitude = document.getElementById('longitude');
+    var ip = document.getElementById('ipv4');
+
+    function callback(data)
+    {
+        country.innerHTML = data.country_name;
+        state.innerHTML = data.state;
+        city.innerHTML = data.city;
+        postal.innerHTML = data.postal;
+        latitude.innerHTML = data.latitude;
+        longitude.innerHTML = data.longitude;
+        ip.innerHTML = data.IPv4;
+    }
+
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://geoip-db.com/json/geoip.php?jsonp=callback';
+    var h = document.getElementsByTagName('script')[0];
+    h.parentNode.insertBefore(script, h);
+
+</script>
 </html>
