@@ -1,0 +1,70 @@
+/** forms **/
+
+.subscribe::placeholder { /* Firefox, Chrome, Opera */ 
+    color: #fff; 
+} 
+  
+.subscribe:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+    color: #fff; 
+} 
+  
+.subscribe::-ms-input-placeholder { /* Microsoft Edge */ 
+    color: #fff; 
+} 
+
+/** forms **/
+
+/** lightbox change max width **/
+.ba-overlay-section-backdrop.lightbox .ba-overlay-section {max-width: 86%;}
+/** lightbox change max width **/
+
+/** button classes **/
+.btn-cookies .ba-btn-transition {display:block;width:100%!important;max-width:198px;text-align:center}
+/** button classes **/
+
+/** blog **/
+.intro-post-wrapper.fullscreen-post {border-radius:9px 9px 0px 0px !important}
+@media (max-width:1023px) {.blog-content-wrapper {padding-left:25px;padding-right:25px;}}
+.blog-content-wrapper {padding-left:40px;padding-right:40px;}
+.blog-content-wrapper h3 {padding-bottom:25px;}
+li {font-size:16px;line-height:1.7em;}
+.ba-blog-post-info-wrapper {margin-bottom: 15px !important;margin-top: 0px !important;}
+.ba-blog-post-title {margin-bottom: 15px !important;}
+/** blog **/
+
+/** menu item **/
+.main-menu a:last-child {padding-right:0px !important;padding-left:0px!important;margin-left:20px;}
+.main-menu li:last-child {margin-right:0px !important;}
+li.deeper >span, li.deeper > a {position: relative;padding-right: 0px !important;}
+li.deeper > span i.zmdi-caret-right, li.deeper > a i.zmdi-caret-right {margin-right: 0px;}
+.ba-logo-wrapper, .ba-logo-wrapper > a, .ba-image-wrapper > a, .ba-image-wrapper {min-width: 110px;}
+.blog #item-179497138800 > .ba-overlay {background-color: rgba(0, 0, 0, 0.9);}
+.blog #item-179497138800 {padding-bottom:20px;}
+.zmdi-menu {cursor:pointer;padding-right: 2px !important;}
+.main-menu > .integration-wrapper > ul {float: right;}
+#item-15563189840 img {min-width: 150px;}
+/** menu item **/
+
+/** menu telephone **/
+.white-link {color:rgba(255,255,255,0.6);}
+.white-link:hover {color:rgba(255,255,255,0.85);}
+/** menu telephone **/
+
+/** LINKS **/
+
+/** PADDING **/
+
+.extra-padding {padding-left:20px;padding-right:20px;}
+@media (max-width:1023px) {.mobile-margin {margin-left:40px; margin-right:40px;}}
+@media (max-width:767px) {.mobile-margin {margin-left:20px; margin-right:20px;}}
+/** PADDING **/
+
+/** BODY **/
+
+p {font-size: 16px;margin-bottom: 15px!important;line-height: 1.6em;}
+.how-it-works {background:#737244;padding-top:50px;padding-bottom:50px}
+
+/** BODY **/
+
+/** SVG Classes **/
+.diamond {background-size:36px!important;background-position:right;}
