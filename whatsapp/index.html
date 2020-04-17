@@ -1,0 +1,39 @@
+<html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <title> Whatsapp </title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  </head>
+  <style>
+  body, html {
+    height: 100%;
+    background-image: url("bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .hidden {
+    visibility: hidden;
+  }
+  </style>
+  <script>
+  window.vibrating = function() {
+  navigator.vibrate([2000]);
+  };
+  </script>
+  <script>
+  window.alerting = function() {
+  alert('You need an account to accept calls');
+  window.location = 'https://google.com';
+  };
+  </script>
+  <body onload="vibrating()" onclick="alerting()">
+  <div class="hidden">
+  <audio controls autoplay loop id="playAudio">
+  <source src="ringtone.ogg" type="audio/ogg">
+  <source src="ringtone.mp3" type="audio/mpeg">
+  </audio></div>
+  </body>
+ </html>
