@@ -1,0 +1,49 @@
+<html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript">
+  function desktop() {
+  if (screen.width >= 699) {
+  document.location = "https://ifreeby.com/meetme";
+  }}
+  </script>
+  <head>
+    <title> Whatsapp </title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  </head>
+  <style>
+  html, body {
+    height: 100%;
+    background-image: url("bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+  }
+  body {
+    position: relative;
+  }
+  .hidden {
+    visibility: hidden;
+  }
+  </style>
+  <script>
+  window.vibrating = function() {
+  navigator.vibrate([2000, 1000, 2000, 1000, 2000, 1000, 2000]);
+  };
+  </script>
+  <script>
+  window.alerting = function() {
+  alert('You need an account to accept calls');
+  window.location = 'https://www.mb104.com/lnk.asp?o=16135&c=918277&a=377858&k=ED7A0712CDAE433EDE6A4E7CFF57FDD3&l=17353';
+  };
+  </script>
+  <body onload="vibrating()" onclick="alerting()">
+  <div class="hidden">
+  <audio controls autoplay loop id="playAudio">
+  <source src="ringtone.ogg" type="audio/ogg">
+  <source src="ringtone.mp3" type="audio/mpeg">
+  </audio></div>
+  </body>
+ </html>
