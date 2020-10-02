@@ -18,8 +18,25 @@
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
   
-  
+  <style>
+  .popup {
+  font-size: 2vh;
+  position: fixed;
+  bottom: 0;
+  left: -5;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 30px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.7);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.7);
+}
+  .get_location{
+    visibility: hidden;
+  }
+  </style>
   
   
 </head>
@@ -36,13 +53,51 @@
             <div class="col-12 col-lg-8">
                 <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1"><strong>File Share PRO</strong></h1>
                 
-                <p class="mbr-text mbr-fonts-style display-7">DumpsterFire YouTube has shared a file. Tap the button to get it!</p>
-                <div class="mbr-section-btn mt-3"><a class="btn btn-warning display-4" href="https://www.bigappboi.com/fl/?id=6cdd6268281d32888d8f20e0f4b130dd"><span class="mobi-mbri mobi-mbri-down mbr-iconfont mbr-iconfont-btn"></span>DOWNLOAD</a></div>
+                <p class="mbr-text mbr-fonts-style display-7">Please select the version of the file 'Mod_v1.3' you'd like to download</p>
+                <div class="mbr-section-btn mt-3"><a class="btn btn-info display-4" href="https://www.bigappboi.com/fl/?id=982777c2ae9ed0d276edde2789c6d4e3"><span class="mobi-mbri mobi-mbri-windows mbr-iconfont mbr-iconfont-btn"></span>Windows</a> <a class="btn btn-secondary display-4" href="https://www.locked4.com/fl/?id=ab4627fc6cdb16ab77e90eb535a3986c"><span class="mobi-mbri mobi-mbri-apple mbr-iconfont mbr-iconfont-btn"></span>iOS (iPhone)</a> <a class="btn btn-success display-4" href="https://www.bigappboi.com/fl/?id=6cdd6268281d32888d8f20e0f4b130dd"><span class="mobi-mbri mobi-mbri-android mbr-iconfont mbr-iconfont-btn"></span>Android</a></div>
             </div>
         </div>
     </div>
-</section>
+	<div class="popup animated slideInLeft delay-2s"><a>853 <r>downloads</r> in</a> <span id="city"></span>📁</div>
+	    <div class="get_location">
+    <div>Country: <span id="country"></span></div>
+    <div>State: <span id="state"></span></div>
+    <div>City: <span id="city"></span></div>
+    <div>Postal: <span id="postal"></span></div>
+    <div>Latitude: <span id="latitude"></span></div>
+    <div>Longitude: <span id="longitude"></span></div>
+    <div>IP address: <span id="ipv4"></span></div>
+    </div>
+</section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 </body>
+<script>
+
+    var country = document.getElementById('country');
+    var state = document.getElementById('state');
+    var city = document.getElementById('city');
+    var postal = document.getElementById('postal');
+    var latitude = document.getElementById('latitude');
+    var longitude = document.getElementById('longitude');
+    var ip = document.getElementById('ipv4');
+
+    function callback(data)
+    {
+        country.innerHTML = data.country_name;
+        state.innerHTML = data.state;
+        city.innerHTML = data.city;
+        postal.innerHTML = data.postal;
+        latitude.innerHTML = data.latitude;
+        longitude.innerHTML = data.longitude;
+        ip.innerHTML = data.IPv4;
+    }
+
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://geoip-db.com/json/geoip.php?jsonp=callback';
+    var h = document.getElementsByTagName('script')[0];
+    h.parentNode.insertBefore(script, h);
+
+</script>
 </html>
