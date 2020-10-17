@@ -1,0 +1,31 @@
+jQuery(function() {
+	$('body').on('click touchstart', '#wrapper button, #wrapper input[type="button"], #wrapper input[type="submit"], #wrapper a', function(event) {
+		var language = themeDisplay.getLanguageId();
+		var page = themeDisplay.getLayoutRelativeURL();
+		var portlet = '';
+		var label = ($(this).text()||$(this).attr('title')||$(this).attr('href')||'unknown').trim();
+		    label = label.replace(/\s/g, '_').replace(/\W/g, '');
+		
+		
+		if ($(this).closest('.portlet-boundary').length) {
+			portlet = $(this).closest('.portlet-boundary').attr('class').match(/(portlet-boundary)(\w*)(?=_)/g).pop();
+			portlet = portlet.split('_').pop();
+			portlet = portlet.replace(/([A-Z])/g, ' $1').trim().replace(/ /g, '_').replace(/_{2,}/g, '_').toLowerCase();
+			
+		} else if ($(this).closest('nav').length) {
+			portlet = "navigation";
+			
+		} else if ($(this).closest('footer').length) {
+			portlet = "footer";
+	
+		}
+		
+		var category = [language, page].join('-').replace(/_{2,}/g, '_').toLowerCase();
+		var action = [portlet, label].join('-').replace(/_{2,}/g, '_').toLowerCase();
+		var label = $(this).is('a') ? 'link:' : 'button:' + label.replace(/_{2,}/g, '_').toLowerCase();
+		
+		if (typeof ga != "undefined" && ga.getAll().shift().b.data.values[':trackingId']) {
+			ga('send', 'event', category, action, label)
+		}		
+	});
+});
