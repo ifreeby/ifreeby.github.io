@@ -1,0 +1,401 @@
+jQuery(document).ready(function($) {
+
+	// Base Variables
+	var windowWidth = $( window ).width(),
+		windowHeight = $( window ).height();
+	var $html = document.getElementsByTagName( 'html' )[0],
+		$body = document.getElementsByTagName( 'body' )[0],
+		$main = document.getElementsByTagName( 'main' )[0];
+	var isMobile = navigator.userAgent.match( /mobile/i ),
+		isDesktop;
+
+
+
+
+
+	// Mobile / Desktop Classes & Checks
+	if ( isMobile ) {
+		$body.classList.add( 'mobile' );
+	}
+	else if ( !isMobile ) {
+		$body.classList.add( 'desktop' );
+	}
+
+
+
+
+
+	// Safari Font Fix
+	// based on http://stackoverflow.com/a/31842229
+	safariFontFix();
+
+	function safariFontFix() {
+		var is_chrome = navigator.userAgent.indexOf( 'Chrome' ) > -1,
+			is_explorer = navigator.userAgent.indexOf( 'MSIE' ) > -1,
+		    is_firefox = navigator.userAgent.indexOf( 'Firefox' ) > -1,
+		    is_safari = navigator.userAgent.indexOf( 'Safari' ) > -1,
+		    is_opera = navigator.userAgent.indexOf( 'Presto' ) > -1,
+		    is_mac = (navigator.userAgent.indexOf( 'Mac OS' ) != -1);
+		    is_windows = !is_mac;
+
+	    if ( is_chrome && is_safari ) {
+			is_safari = false;
+	    }
+
+	    if ( is_safari || is_windows ) {
+			$body.classList.add( 'safari-font-fix' );
+	    }
+	}
+
+
+
+
+
+	// Ampersand Wrapping
+	$( 'h1:contains("&")' ).each(function () {
+		var wrappedHTML = $( this ).html().replace( /&amp;/g, '<span class="ampersand">&amp;</span>' );
+
+        $( this ).html( wrappedHTML );
+    });
+
+
+
+
+
+	// Widow Control
+	widowControl();
+
+	function widowControl() {
+		var windowWidth = $( window ).width(),
+			widowElements = $( 'h1, p, .content-article h3, .list-resources__block__header h3, .grid-initiatives__block__detail' );
+
+		widowElements.each( function() {
+			$( this ).html( $( this ).html().replace( /&nbsp;/g, ' ' ) );
+		});
+
+		if ( windowWidth > 700 ) {
+			widowElements.each( function() {
+			    $( this ).html( $( this ).html().replace( /\s((?=(([^\s<>]|<[^>]*>)+))\2)\s*$/, '&nbsp;$1' ) );
+			});
+		}
+	};
+
+
+
+
+
+	// Search Bar Functionality
+
+	$( '#navbar__search' ).on( 'click', function() {
+		$( '#navbar__search-row' ).toggleClass( 'active' );
+
+		$( '#navbar__button__top-bar' ).attr( 'opacity', '1' );
+		$( '#navbar__button__bottom-bar' ).attr( 'opacity', '1' );
+		$( '#navbar__button__middle-bar--1' ).attr( 'transform', 'rotate(0 112.5 80)' );
+		$( '#navbar__button__middle-bar--2' ).attr( 'transform', 'rotate(0 112.5 80)' );
+
+		$( '#navbar__button' ).removeClass( 'menu--open' );
+		$( '#nav__side-menu' ).removeClass( 'menu--open' );
+		$( '.nav__side-menu__block__item, .nav__side-menu__arrow').removeClass( 'menu--open');
+
+		return false;
+	});
+
+
+
+
+
+	// Main Nav Functionality
+	$( '#navbar__button' ).on( 'click', function() {
+		if ( $( this ).hasClass( 'menu--open' ) ) {
+			$( '#navbar__button__top-bar' ).attr( 'opacity', '1' );
+			$( '#navbar__button__bottom-bar' ).attr( 'opacity', '1' );
+			$( '#navbar__button__middle-bar--1' ).attr( 'transform', 'rotate(0 112.5 80)' );
+			$( '#navbar__button__middle-bar--2' ).attr( 'transform', 'rotate(0 112.5 80)' );
+
+			$( '.nav__side-menu__block__item, .nav__side-menu__arrow').removeClass( 'menu--open');
+
+			$( this ).removeClass( 'menu--open' );
+		}
+		else if ( !$( this ).hasClass( 'menu--open' ) ) {
+			$( '#navbar__button__top-bar' ).attr( 'opacity', '0' );
+			$( '#navbar__button__bottom-bar' ).attr( 'opacity', '0' );
+			$( '#navbar__button__middle-bar--1' ).attr( 'transform', 'rotate(-45 112.5 80)' );
+			$( '#navbar__button__middle-bar--2' ).attr( 'transform', 'rotate(45 112.5 80)' );
+
+			$( this ).addClass( 'menu--open' );
+		}
+
+		$( '#navbar__search-row' ).removeClass( 'active' );
+
+		$( '#nav__side-menu' ).toggleClass( 'menu--open' );
+
+		return false;
+	});
+
+
+
+
+
+	// Nav Flyout Functionality
+	$( '.nav__side-menu__block > .nav__side-menu__block__item > div > .nav__side-menu__arrow, .nav__side-menu__flyout--main > .nav__side-menu__block__item > div > .nav__side-menu__arrow' ).on( 'click', function() {
+		$( '.nav__side-menu__arrow' ).not( $( this ) ).removeClass( 'menu--open' );
+		$( '.nav__side-menu__block__item' ).not( $( this ).closest( '.nav__side-menu__block__item' ) ).removeClass( 'menu--open' );
+
+		if ( $( this ).is( '.nav__side-menu__flyout--main > .nav__side-menu__block__item > div > .nav__side-menu__arrow' ) ) {
+			$( this ).closest( '.nav__side-menu__block > .nav__side-menu__block__item' ).addClass( 'menu--open' );
+			$( this ).closest( '.nav__side-menu__block > .nav__side-menu__block__item' ).children().children( '.nav__side-menu__arrow' ).addClass( 'menu--open' );
+		}
+
+		$( this ).toggleClass( 'menu--open' );
+		$( this ).closest( '.nav__side-menu__block__item' ).toggleClass( 'menu--open' );
+
+		return false;
+	});
+
+
+
+
+
+	// Secondary Nav Functionality
+	if ( $( '#nav-secondary__container' ) ) {
+		$( '#nav-secondary' ).stickyNavbar({
+			animDuration: 650,
+			startAt: 0,
+			animateCSS: false,
+			jqueryEffects: false,
+			easing: 'easeInOutQuad',
+			stickyModeClass: 'fixed',
+			sectionSelector: 'scroll-target',
+			selector: 'a',
+			activeClass: 'active',
+			mobile: false,
+			mobileWidth: 725,
+			zindex: 'auto'
+		});
+	}
+
+
+
+
+
+	// Refine Menu Functionality
+	$( '.button--refine > .button' ).on( 'click', function(){
+		$( this ).parent( '.button--refine' ).toggleClass( 'active--menu' );
+
+		return false;
+	});
+
+
+
+
+
+	// Drawer Functionality
+	$( '.drawer__expand' ).hide();
+
+	$( '.button__drawer' ).on( 'click', function(){
+		var targetDrawer = $( this ).attr( 'data-button' ),
+			elementDrawer = $( '.drawer__expand[data-name="' + targetDrawer + '"]');
+
+		$( this ).toggleClass( 'button__drawer--close' );
+
+		elementDrawer.slideToggle( 350 );
+		elementDrawer.children( '.drawer__expand__content' ).toggleClass( 'drawer__expand__content--closed' );
+
+		return false;
+	});
+
+
+
+
+
+	// Sticky Share Functionality
+	var stickyShareOffset = 40;
+
+	if ( $( '#nav-secondary' ) ) {
+		stickyShareOffset = 80;
+	}
+
+	if ( windowWidth > 1005 ) {
+		$( '.article-share' ).stickybits({
+			stickyBitStickyOffset: stickyShareOffset,
+			useStickyClasses: true
+		});
+	}
+
+
+
+
+
+	// Selection Share Functionality
+	$( '.content-article h3, .content-article p, .content-event h5, .content-event p' ).selectionSharer();
+
+
+
+
+
+	// Map Lightbox Functionality
+
+$('.map__map__state, .map__list__link').featherlight('data-featherlight', {closeIcon: ''});
+
+
+
+	// Map Tooltip Functionality
+	var statesObject = {
+		    'AL': 'Alabama',
+		    'AK': 'Alaska',
+		    'AS': 'American Samoa',
+		    'AZ': 'Arizona',
+		    'AR': 'Arkansas',
+		    'CA': 'California',
+		    'CO': 'Colorado',
+		    'CT': 'Connecticut',
+		    'DE': 'Delaware',
+		    'DC': 'District Of Columbia',
+		    'FM': 'Federated States Of Micronesia',
+		    'FL': 'Florida',
+		    'GA': 'Georgia',
+		    'GU': 'Guam',
+		    'HI': 'Hawaii',
+		    'ID': 'Idaho',
+		    'IL': 'Illinois',
+		    'IN': 'Indiana',
+		    'IA': 'Iowa',
+		    'KS': 'Kansas',
+		    'KY': 'Kentucky',
+		    'LA': 'Louisiana',
+		    'ME': 'Maine',
+		    'MH': 'Marshall Islands',
+		    'MD': 'Maryland',
+		    'MA': 'Massachusetts',
+		    'MI': 'Michigan',
+		    'MN': 'Minnesota',
+		    'MS': 'Mississippi',
+		    'MO': 'Missouri',
+		    'MT': 'Montana',
+		    'NE': 'Nebraska',
+		    'NV': 'Nevada',
+		    'NH': 'New Hampshire',
+		    'NJ': 'New Jersey',
+		    'NM': 'New Mexico',
+		    'NY': 'New York',
+		    'NC': 'North Carolina',
+		    'ND': 'North Dakota',
+		    'MP': 'Northern Mariana Islands',
+		    'OH': 'Ohio',
+		    'OK': 'Oklahoma',
+		    'OR': 'Oregon',
+		    'PW': 'Palau',
+		    'PA': 'Pennsylvania',
+		    'PR': 'Puerto Rico',
+		    'RI': 'Rhode Island',
+		    'SC': 'South Carolina',
+		    'SD': 'South Dakota',
+		    'TN': 'Tennessee',
+		    'TX': 'Texas',
+		    'UT': 'Utah',
+		    'VT': 'Vermont',
+		    'VI': 'Virgin Islands',
+		    'VA': 'Virginia',
+		    'WA': 'Washington',
+		    'WV': 'West Virginia',
+		    'WI': 'Wisconsin',
+		    'WY': 'Wyoming'
+		}
+
+	$( '.desktop .map__map > .map__map__state' ).each( function(){
+		var stateID = $( this ).attr( 'id' ),
+			stateWidth = $( this )[0].getBBox().width,
+			stateHeight = $( this )[0].getBBox().height,
+			stateArray = []
+
+		$.each( statesObject, function( key, value ) {
+			if ( stateID == key ) {
+				Tipped.create( $( '#' + stateID ), value, {
+					position: 'top',
+					size: 'large',
+					offset: {
+						x: ( stateWidth / 2 ),
+						y: ( stateHeight / 4.01 )
+					}
+				});
+			}
+		});
+	});
+
+
+
+
+
+	// Map Deluxe Overlay Functionality
+	$( '.desktop .map__map--deluxe > .map__map__state' ).hover(
+
+
+		function() {
+			var stateID = $( this ).attr( 'id' );
+			console.log(stateID);
+			var mapHalf = $( '.map__map--deluxe' ).width() / 2,
+				statePos = $( this )[0].getBBox().x + $( this )[0].getBBox().width;
+
+			if ( statePos < mapHalf ) {
+				$( '#map__overlay--right.' + stateID ).css( 'opacity', 1 );
+			}
+			else {
+				$( '#map__overlay--left.' + stateID ).css( 'opacity', 1 );
+			}
+		},
+		function() {
+			$( '#map__overlay--left, #map__overlay--right' ).css( 'opacity', 0 );
+		}
+	);
+
+
+
+
+
+	// Debounce Resize
+	// based on http://stackoverflow.com/a/27923937
+	$( window ).on( 'resize', function() {
+		var newWindowWidth = $( window ).width();
+
+		windowHeight = $( window ).height();
+
+		if ( windowWidth != newWindowWidth ) {
+			clearTimeout( window.resizedFinished );
+
+			window.resizedFinished = setTimeout( function(){
+				widowControl();
+
+				windowWidth = $( window ).width();
+			}, 250);
+		}
+	});
+
+	// Webinar billing toggle
+	$('#edit-same-address').on('change', function() {
+		var newBillingFields = $('#different-billing-fields input'),
+				newBillingSelect = $('#different-billing-fields select'),
+				sameBilling = $(this).is(':checked')
+		if(sameBilling) {
+			newBillingFields.removeAttr('required')
+			newBillingSelect.removeAttr('required')
+		} else {
+			newBillingFields.attr('required', 'required')
+			newBillingSelect.attr('required', 'required')
+		}
+	})
+
+	// Webinar form validations
+
+
+	if($('.zipcode-input').length > 0) {
+		$('.zipcode-input').mask('99999',{placeholder:' '});
+	}
+	if($('.credit-expiration').length > 0) {
+		$('.credit-expiration').mask('99/9999',{placeholder:' '});
+	}
+	if($('.phone-input').length > 0) {
+		$('.phone-input').mask('(999) 999-9999',{placeholder:' '});
+	}
+
+});

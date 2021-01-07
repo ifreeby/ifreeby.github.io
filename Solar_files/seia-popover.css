@@ -1,0 +1,255 @@
+.popover {
+  display: none;
+  z-index: 501;
+}
+.popover.show {
+  display: block;
+}
+.popover.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.toolbar-fixed .popover.sticky {
+  top: 55px;
+}
+.popover-fixed .nav-secondary.fixed {
+  top: 98px;
+}
+.toolbar-fixed .nav-secondary.fixed {
+  top: 55px;
+}
+.toolbar-fixed.popover-fixed .nav-secondary.fixed {
+  top: 153px;
+}
+.popover.sticky + .nav__container {
+  padding-top: 80px;
+}
+.popover__content {
+  padding: 8px 45px;
+}
+.popover__content > div {
+  margin:16px 30px;
+}
+
+.popover__title span {
+  font-size: 2.625em;
+  line-height: 1.2;
+  letter-spacing: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.popover .button--close {
+  top: 30px;
+  right: 15px;
+  position: absolute;
+  transform: translate3d(0, -50%, 0) rotate(-45deg);
+  display: block;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 10;
+}
+.popover .button--close::before,
+.popover .button--close::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 18px;
+  background: white;
+  border-radius: 3px;
+  transform: translate3d(-50%, -50%, 0);
+  content: '';
+}
+.popover .button--close::after {
+  transform: translate3d(-50%, -50%, 0) rotate(90deg);
+}
+
+/* White */
+.seia-button--white--solid {
+  color: #0771BD;
+  background: #FFF;
+  border: 2px solid #FFF;
+}
+.seia-button--white--solid:hover, .seia-button--white--solid:active, .seia-button--white--solid:focus {
+  background: transparent;
+  color: #FFF;
+}
+.seia-button--white--outline {
+  color: #FFF;
+  background: transparent;
+  border: 2px solid #FFF;
+}
+.seia-button--white--outline:hover, .seia-button--white--outline:active, .seia-button--white--outline:focus {
+  background: #FFF;
+  color: #0771BD;
+}
+.seia-button--white--gradient {
+  background: linear-gradient(to left, #EEE, #FFF),
+#EEE;
+  color: #0771BD;
+  border: 2px solid transparent;
+  background-size: 110% 105%;
+  background-position: center center;
+}
+.seia-button--white--gradient:hover, .seia-button--white--gradient:active, .seia-button--white--gradient:focus {
+  background:white;
+  border-color:  #FFF;
+  color:  #0771BD;
+}
+/* Blue */
+.seia-button--blue--solid {
+  color: #FFF;
+  background: #0771BD;
+  border: 2px solid #0771BD;
+}
+.seia-button--blue--solid:hover, .seia-button--blue--solid:active, .seia-button--blue--solid:focus {
+  background: transparent;
+  color: #0771BD;
+}
+.seia-button--blue--outline {
+  color: #0771BD;
+  background: transparent;
+  border: 2px solid #0771BD;
+}
+.seia-button--blue--outline:hover, .seia-button--blue--outline:active, .seia-button--blue--outline:focus {
+  background: #0771BD;
+  color: #FFF;
+}
+.seia-button--blue--gradient {
+  background: linear-gradient(to left, #0771BD, #37B3E5),
+  #0771BD;
+  color: white;
+  border: 2px solid transparent;
+  background-size: 110% 105%;
+  background-position: center center;
+}
+.seia-button--blue--gradient:hover, .seia-button--blue--gradient:active, .seia-button--blue--gradient:focus {
+  background:white;
+  border-color:  #0771BD;
+  color:  #0771BD;
+}
+
+/* Orange */
+.seia-button--orange--solid {
+  color: #FFF;
+  background: #EF8203;
+  border: 2px solid #EF8203;
+}
+.seia-button--orange--solid:hover, .seia-button--orange--solid:active, .seia-button--orange--solid:focus {
+  background: transparent;
+  color: #EF8203;
+}
+.seia-button--orange--outline {
+  color: #EF8203;
+  background: transparent;
+  border: 2px solid #EF8203;
+}
+.seia-button--orange--outline:hover, .seia-button--orange--outline:active, .seia-button--orange--outline:focus {
+  background: #EF8203;
+  color: #FFF;
+}
+.seia-button--orange--gradient {
+  background: linear-gradient(to left, #F78237, #F2A472),
+#F78237;
+  color: white;
+  border: 2px solid transparent;
+  background-size: 110% 105%;
+  background-position: center center;
+}
+.seia-button--orange--gradient:hover, .seia-button--orange--gradient:active, .seia-button--orange--gradient:focus {
+  background:white;
+  border-color:  #EF8203;
+  color:  #EF8203;
+}
+
+/* Green */
+.seia-button--green--solid {
+  color: #FFF;
+  background: #89B550;
+  border: 2px solid #89B550;
+}
+.seia-button--green--solid:hover, .seia-button--green--solid:active, .seia-button--green--solid:focus {
+  background: transparent;
+  color: #89B550;
+}
+.seia-button--green--outline {
+  color: #89B550;
+  background: transparent;
+  border: 2px solid #89B550;
+}
+.seia-button--green--outline:hover, .seia-button--green--outline:active, .seia-button--green--outline:focus {
+  background: #89B550;
+  color: #FFF;
+}
+.seia-button--green--gradient {
+  background: linear-gradient(to left, #89B550, #B7DA8A),
+  #89B550;
+  color: white;
+  border: 2px solid transparent;
+  background-size: 110% 105%;
+  background-position: center center;
+}
+.seia-button--green--gradient:hover, .seia-button--green--gradient:active, .seia-button--green--gradient:focus {
+  background:white;
+  border-color:  #89B550;
+  color:  #89B550;
+}
+
+
+/* Purple */
+.seia-button--purple--solid {
+  color: #FFF;
+  background: #CB67E0;
+  border: 2px solid #CB67E0;
+}
+.seia-button--purple--solid:hover, .seia-button--purple--solid:active, .seia-button--purple--solid:focus {
+  background: transparent;
+  color: #CB67E0;
+}
+.seia-button--purple--outline {
+  color: #CB67E0;
+  background: transparent;
+  border: 2px solid #CB67E0;
+}
+.seia-button--purple--outline:hover, .seia-button--purple--outline:active, .seia-button--purple--outline:focus {
+  background: #CB67E0;
+  color: #FFF;
+}
+.seia-button--purple--gradient {
+  background: linear-gradient(to left, #CB67E0, #E99DF9),
+  #CB67E0;
+  color: white;
+  border: 2px solid transparent;
+  background-size: 110% 105%;
+  background-position: center center;
+}
+.seia-button--purple--gradient:hover, .seia-button--purple--gradient:active, .seia-button--purple--gradient:focus {
+  background:white;
+  border-color:  #CB67E0;
+  color:  #CB67E0;
+}
+
+@media screen and (max-width: 1005px) {
+  .popover__title span {
+    font-size: 1.8em;
+  }
+}
+@media screen and (max-width: 725px) {
+  .popover__content {
+    padding: 8px 45px;
+  }
+  .popover__content > div {
+    margin:10px;
+  }
+
+  .popover__title span {
+    font-size: 1.3em;
+  }
+  .seia-button {
+    font-size: 14px;
+  }
+}

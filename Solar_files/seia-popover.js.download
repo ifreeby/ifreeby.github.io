@@ -1,0 +1,99 @@
+Drupal.behaviors.seiaPopover = {
+  cookieName: 'SEIAPopover',
+  popoverOffsetTop: 0,
+
+  attach: function (context, settings) {
+    'use strict';
+
+    var $popover = jQuery('.popover');
+    Drupal.behaviors.seiaPopover.popoverOffsetTop = $popover.offset().top;
+    var delay = 1000;
+    var throttled = false;
+
+    window.addEventListener('scroll', function () {
+      Drupal.behaviors.seiaPopover.scroll($popover);
+    });
+    Drupal.behaviors.seiaPopover.scroll($popover);
+
+
+    window.addEventListener('resize', function () {
+      if (!throttled) {
+        Drupal.behaviors.seiaPopover.resize($popover);
+        throttled = true;
+        setTimeout(function () {
+          throttled = false;
+        }, delay);
+      }
+    });
+
+    if (Drupal.behaviors.seiaPopover.readCookie(Drupal.behaviors.seiaPopover.cookieName) === null) {
+      Drupal.behaviors.seiaPopover.show($popover);
+    }
+    jQuery('.popover .button--close').click(function () {
+      Drupal.behaviors.seiaPopover.hide($popover);
+      Drupal.behaviors.seiaPopover.createCookie(Drupal.behaviors.seiaPopover.cookieName, 'true', 1);
+    });
+  },
+  resize: function ($popover) {
+    'use strict';
+    jQuery('#nav__side-menu').css('paddingTop', '');
+    var navPaddingTop = jQuery('#nav__side-menu').css('paddingTop');
+    jQuery('#nav__side-menu').css('paddingTop', parseFloat($popover.height()) + parseFloat(navPaddingTop));
+  },
+  scroll: function ($popover) {
+    'use strict';
+    if ($popover.hasClass('show')) {
+      if (window.pageYOffset > Drupal.behaviors.seiaPopover.popoverOffsetTop) {
+        $popover.addClass('sticky');
+        jQuery('body').addClass('popover-fixed');
+        jQuery('.nav__container').css('paddingTop', $popover.height());
+      }
+      else {
+        $popover.removeClass('sticky');
+        jQuery('body').removeClass('popover-fixed');
+        jQuery('.nav__container').css('paddingTop', '');
+      }
+    }
+    else {
+      jQuery('.nav__container').css('paddingTop', '');
+    }
+
+  },
+  hide: function ($this) {
+    'use strict';
+    $this.removeClass('show');
+    jQuery('.nav__container').css('paddingTop', '');
+    jQuery('#nav__side-menu').css('paddingTop', '');
+  },
+  show: function ($this) {
+    'use strict';
+    $this.addClass('show');
+    var navPaddingTop = jQuery('#nav__side-menu').css('paddingTop');
+    jQuery('#nav__side-menu').css('paddingTop', parseFloat($this.height()) + parseFloat(navPaddingTop));
+  },
+  createCookie: function (name, value, days) {
+    'use strict';
+    var expires;
+
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = '; expires=' + date.toGMTString();
+    }
+    else {
+      expires = '';
+    }
+    document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value) + expires + '; path=/';
+  },
+  readCookie: function (name) {
+    'use strict';
+    var nameEQ = encodeURIComponent(name) + '=';
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) === ' ') {c = c.substring(1, c.length);}
+      if (c.indexOf(nameEQ) === 0) {return decodeURIComponent(c.substring(nameEQ.length, c.length));}
+    }
+    return null;
+  }
+};
